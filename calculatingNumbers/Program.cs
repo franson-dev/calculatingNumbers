@@ -90,6 +90,6 @@ public class Calculos
         }
 
         // Exibe uma mensagem final quando o programa é encerrado
-        Console.WriteLine("Obrigado por usar a calculadora!");
+        Console.WriteLine("Obrigado por usar o Optimus Prime!");
     }
 }
