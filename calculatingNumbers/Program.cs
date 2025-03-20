@@ -1,88 +1,88 @@
-﻿using System; // Importa a biblioteca padrão para entrada e saída (Console, por exemplo).
-using calculatingNumbers; // Importa o namespace onde a classe Calculadora está definida.
+﻿using System; // Importa a biblioteca padrão para recursos de entrada e saída, como Console.
+using Etec.Negocios; // Importa o namespace onde a classe Calculadora está definida.
 
-public class Program // Declara a classe principal do programa.
+public class Program // Define a classe principal do programa.
 {
-    static void Main() // Método principal, o ponto de entrada do programa.
+    public static void Main(string[] args) // Método principal, ponto de entrada do programa.
     {
-        bool continuar = true; // Variável para controlar se o programa deve continuar em loop.
+        bool continuar = true; // Variável de controle para repetição do programa.
 
-        // Loop principal que executa enquanto o usuário deseja continuar.
+        // Loop principal do programa que continua enquanto o usuário desejar.
         while (continuar)
         {
-            Console.WriteLine("=== Calculadora ==="); // Exibe o título no console.
+            Console.WriteLine("=== Calculadora ==="); // Exibe o título da aplicação.
 
-            // Solicita o primeiro número do usuário.
+            // Solicita o primeiro número ao usuário.
             double valor1 = ObterValor("\nDigite o primeiro valor: ");
 
-            // Solicita a operação matemática que o usuário deseja realizar.
+            // Solicita o tipo de operação matemática.
             string operacao = ObterOperacao();
 
-            // Solicita o segundo número do usuário.
+            // Solicita o segundo número ao usuário.
             double valor2 = ObterValor("\nDigite o segundo valor: ");
 
-            // Realiza a operação selecionada utilizando a classe Calculadora e armazena o resultado.
+            // Calcula o resultado utilizando a classe Calculadora.
             double resultado = Calculadora.ExecutarOperacao(valor1, valor2, operacao);
 
-            // Exibe o resultado da operação no console.
+            // Exibe o resultado final ao usuário.
             Console.WriteLine($"\nResultado: {valor1} {operacao} {valor2} = {resultado}");
 
-            // Pergunta ao usuário se deseja realizar outro cálculo.
+            // Verifica se o usuário deseja realizar outro cálculo.
             continuar = DesejaContinuar();
 
-            // Limpa o console antes de repetir o loop.
+            // Limpa a tela do console antes de reiniciar o loop.
             Console.Clear();
         }
 
         Console.WriteLine("Obrigado por usar a calculadora!"); // Mensagem final ao encerrar o programa.
     }
 
-    // Método para solicitar e validar um valor numérico do usuário.
-    private static double ObterValor(string mensagem)
+    // Método para solicitar e validar um número fornecido pelo usuário.
+    public static double ObterValor(string mensagem)
     {
-        double valor; // Declara a variável para armazenar o número digitado.
-        Console.Write(mensagem); // Exibe a mensagem para o usuário.
+        double valor; // Variável para armazenar o número inserido.
+        Console.Write(mensagem); // Exibe a mensagem ao usuário.
 
-        // Valida a entrada do usuário até que ele digite um número válido.
+        // Valida a entrada até que seja fornecido um número válido.
         while (!double.TryParse(Console.ReadLine(), out valor))
         {
-            Console.WriteLine("Valor inválido. Tente novamente."); // Informa que a entrada é inválida.
-            Console.Write(mensagem); // Solicita novamente o número.
+            Console.WriteLine("Valor inválido. Tente novamente."); // Informa erro na entrada.
+            Console.Write(mensagem); // Repete a solicitação do valor.
         }
         return valor; // Retorna o número válido.
     }
 
-    // Método para solicitar e validar a operação matemática escolhida pelo usuário.
-    private static string ObterOperacao()
+    // Método para obter e validar a operação matemática escolhida.
+    public static string ObterOperacao()
     {
-        // Exibe as opções de operações disponíveis.
+        // Exibe as operações disponíveis ao usuário.
         Console.WriteLine("\nEscolha a operação:");
         Console.WriteLine("+ Somar");
         Console.WriteLine("- Subtrair");
         Console.WriteLine("* Multiplicar");
         Console.WriteLine("/ Dividir\n");
 
-        string operacao; // Variável para armazenar o operador escolhido.
+        string operacao; // Variável para armazenar a operação escolhida.
 
-        // Loop para garantir que a operação escolhida seja válida.
+        // Loop para garantir que o usuário escolha uma operação válida.
         while (true)
         {
-            operacao = Console.ReadLine().Trim(); // Lê o operador e remove espaços extras.
+            operacao = Console.ReadLine().Trim(); // Lê e remove espaços extras da entrada.
 
-            // Verifica se o operador é um dos valores aceitos.
+            // Valida se a operação é uma das permitidas.
             if (operacao == "+" || operacao == "-" || operacao == "*" || operacao == "/")
-                break; // Sai do loop se for um operador válido.
+                break; // Sai do loop em caso de operação válida.
 
             Console.WriteLine("Operação inválida. Tente novamente."); // Mensagem de erro.
         }
-        return operacao; // Retorna a operação válida.
+        return operacao; // Retorna a operação escolhida.
     }
 
-    // Método para perguntar ao usuário se ele deseja continuar.
-    private static bool DesejaContinuar()
+    // Método para perguntar ao usuário se deseja realizar mais cálculos.
+    public static bool DesejaContinuar()
     {
-        Console.WriteLine("\nDeseja realizar outro cálculo? (s/n): "); // Solicita ao usuário uma resposta.
-        string resposta = Console.ReadLine().Trim().ToLower(); // Lê a resposta e converte para minúsculas.
-        return resposta == "s"; // Retorna true se o usuário digitar "s", caso contrário retorna false.
+        Console.WriteLine("\nDeseja realizar outro cálculo? (s/n): "); // Solicita uma resposta ao usuário.
+        string resposta = Console.ReadLine().Trim().ToLower(); // Lê e normaliza a resposta para minúsculas.
+        return resposta == "s"; // Retorna true para "s" e false para qualquer outra entrada.
     }
 }

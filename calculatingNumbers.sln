@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35707.178 d17.12
+VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "calculatingNumbers", "calculatingNumbers\calculatingNumbers.csproj", "{D0DF3ED7-1916-4162-8F27-BD8F43D2F43E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Etec.Negocios", "Etec.Negocios\Etec.Negocios.csproj", "{449C8D70-BC61-4479-8342-F6E935089F35}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{D0DF3ED7-1916-4162-8F27-BD8F43D2F43E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0DF3ED7-1916-4162-8F27-BD8F43D2F43E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0DF3ED7-1916-4162-8F27-BD8F43D2F43E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{449C8D70-BC61-4479-8342-F6E935089F35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{449C8D70-BC61-4479-8342-F6E935089F35}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{449C8D70-BC61-4479-8342-F6E935089F35}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{449C8D70-BC61-4479-8342-F6E935089F35}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
